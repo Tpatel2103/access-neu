@@ -6,5 +6,7 @@ export function showNotice(message, type = "success") {
   box.dataset.type = type;
   box.classList.add("is-visible");
   clearTimeout(timer);
-  timer = setTimeout(() => box.classList.remove("is-visible"), 5000);
+  if (type !== "error") {
+    timer = setTimeout(() => box.classList.remove("is-visible"), 5000);
+  }
 }
