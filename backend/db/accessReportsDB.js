@@ -12,7 +12,7 @@ export async function createIndexes() {
   await reports().createIndexes([
     { key: { location: 1, status: 1 } },
     { key: { category: 1 } },
-    { key: { createdAt: -1 } },
+    { key: { status: 1, createdAt: -1 } },
   ]);
 }
 
