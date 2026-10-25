@@ -178,8 +178,10 @@ function makeReport() {
   const [title, description] = pick(REPORT_TEMPLATES[category]);
   const createdAt = daysAgo(between(0, 180));
   const resolved = random() < 0.6;
-  const resolvedAt = resolved
-    ? new Date(createdAt.getTime() + between(1, 14) * 86400000)
+    const resolvedAt = resolved
+    ? new Date(
+        Math.min(Date.now(), createdAt.getTime() + between(1, 14) * 86400000),
+      )
     : null;
   return {
     title,
